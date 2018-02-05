@@ -1,0 +1,18 @@
+$column-gutter: 5px;
+
+.bricklayer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  &__column {
+    flex: 1;
+    padding: 0 $column-gutter;
+
+    img {
+      margin: $column-gutter;
+      width: 100%;
+    }
+  }
+}
