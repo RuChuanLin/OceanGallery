@@ -25,10 +25,31 @@ class BrickLayer extends Component {
 
   renderColumns() {
     const { width } = this.state;
-    const imgs = [i1, i2, i3, i4, i5];
+    const imgs = [
+      { title: 'Deep Blue', img: i1 },
+      { title: 'Droplet', img: i2 },
+      { title: 'Twilight', img: i3 },
+      { title: 'Dusk', img: i4 },
+      { title: 'Purple Fog', img: i5 },
+      { title: 'Deep Blue', img: i1 },
+      { title: 'Droplet', img: i2 },
+      { title: 'Twilight', img: i3 },
+      { title: 'Dusk', img: i4 },
+      { title: 'Purple Fog', img: i5 },
+      { title: 'Deep Blue', img: i1 },
+      { title: 'Droplet', img: i2 },
+      { title: 'Twilight', img: i3 },
+      { title: 'Dusk', img: i4 },
+      { title: 'Purple Fog', img: i5 },
+      { title: 'Deep Blue', img: i1 },
+      { title: 'Droplet', img: i2 },
+      { title: 'Twilight', img: i3 },
+      { title: 'Dusk', img: i4 },
+      { title: 'Purple Fog', img: i5 }
+    ];
     let columnCount;
     if (width >= 1200) {
-      columnCount = 4;
+      columnCount = 3;
     } else if (width < 1200 && width >= 980) {
       columnCount = 3;
     } else if (width < 980 && width >= 640) {
@@ -41,17 +62,17 @@ class BrickLayer extends Component {
       indents.push(
         <div key={i} className="bricklayer__column">
           {imgs.map(
-            (img, index) =>
+            ({ title, img }, index) =>
               index % columnCount === i || 0 ? (
-                <div className="brickitem">
-                  <img
-                    className="brickitem__img"
-                    key={Math.random()
-                      .toString(36)
-                      .slick(-6)}
-                    src={img}
-                    alt={index}
-                  />
+                <div
+                  className="brickitem"
+                  key={Math.random()
+                    .toString(36)
+                    .slice(-6)}
+                  style={{ background: `url(${img})` }}
+                >
+                  <div className="brickitem__title">{title}</div>
+                  <img className="brickitem__img" src={img} alt={index} />
                 </div>
               ) : (
                 ''

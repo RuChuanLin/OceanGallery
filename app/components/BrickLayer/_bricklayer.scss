@@ -1,3 +1,5 @@
+$shadow-color: #888;
+
 $column-gutter: 55px;
 
 .bricklayer {
@@ -12,12 +14,43 @@ $column-gutter: 55px;
     .brickitem {
       width: 100%;
       height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: $column-gutter;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 3px 3px 3px 0 $shadow-color;
+      transition: all 0.1s ease-in-out;
+      position: relative;
+      top: 0;
       &:hover {
-        background-color: #fff;
+        box-shadow: 5px 5px 5px 0 lighten($shadow-color, 25%);
+        top: -3px;
+        .brickitem__title {
+          opacity: 1;
+        }
       }
-      img {
-        margin: $column-gutter;
+      &__title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font: normal normal normal 1.3em 'Playfair Display', serif;
+        background: radial-gradient(
+          rgba(255, 255, 255, 0.7) 40%,
+          transparent 75%
+        );
+        padding: 1em 2em;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        // :hover > & {
+        //   opacity: 1;
+        // }
+      }
+      &__img {
+        z-index: -1;
         width: 100%;
+        visibility: hidden;
       }
     }
   }

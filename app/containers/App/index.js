@@ -11,7 +11,8 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
-import WorkPage from 'containers//WorkPage/Loadable';
+import WorkPage from 'containers/WorkPage/Loadable';
+import InfoPage from 'containers/InfoPage/Loadable';
 
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
@@ -36,7 +37,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={WorkPage} />
-        <Route path="/features" component={FeaturePage} />
+        <Route path="/info" component={InfoPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
