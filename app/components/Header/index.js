@@ -40,6 +40,7 @@ class Header extends React.Component {
         <HomeLink to="/">Ocean Gallery</HomeLink>
         <NavBar>
           <HeaderLink to="/">Work</HeaderLink>
+          <HeaderLink to="/store">Store</HeaderLink>
           <HeaderLink to="/info">Info</HeaderLink>
         </NavBar>
       </HeaderWrapper>

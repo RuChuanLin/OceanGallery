@@ -14,10 +14,37 @@ const client_list = [
   { name: `Paper News` }
 ];
 
+const exhibitions = [
+  {
+    zip: 2023,
+    gallery: 'Illustration Home Gallery',
+    location: 'San Fransisco'
+  },
+  {
+    zip: 2023,
+    gallery: 'Fefe Gallery',
+    location: 'Barcelona'
+  },
+  {
+    zip: 2023,
+    gallery: 'Delicate Art Gallery',
+    location: 'London'
+  }
+];
+
 class InfoPage extends Component {
   renderClientList() {
     return client_list.map(({ name }) => (
-      <p className="intro__content">{name}</p>
+      <p className="clients__content">{name}</p>
+    ));
+  }
+  renderExhibitions() {
+    return exhibitions.map(({ zip, gallery, location }) => (
+      <div className="exhibitions__block">
+        <p className="exhibitions__block zip">{zip}</p>
+        <p className="exhibitions__block gallery">{gallery}</p>
+        <p className="exhibitions__block location">{location}</p>
+      </div>
     ));
   }
   render() {
@@ -41,14 +68,26 @@ class InfoPage extends Component {
             <img src={avatar} alt="123" />
           </section>
         </article>
-        <article className="infopage__intro">
+        <article className="infopage__info">
           <section className="clients">
-            <h3 className="intro__title">Selected Clients</h3>
+            <h3 className="clients__title">Selected Clients</h3>
             {this.renderClientList()}
           </section>
           <section className="exhibitions">
-            <h3 className="intro__title">Latest Exhibitions</h3>
+            <h3 className="exhibitions__title">Latest Exhibitions</h3>
+            {this.renderExhibitions()}
           </section>
+        </article>
+        <article className="infopage__subscribe">
+          <h3 className="title">join my mailing list</h3>
+          <form className="form">
+            <input
+              className="form__input"
+              type="email"
+              placeholder="Email Address"
+            />
+            <button className="form__submit">subscribe now</button>
+          </form>
         </article>
       </main>
     );

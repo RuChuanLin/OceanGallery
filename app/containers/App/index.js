@@ -13,12 +13,12 @@ import { Switch, Route } from 'react-router-dom';
 
 import WorkPage from 'containers/WorkPage/Loadable';
 import InfoPage from 'containers/InfoPage/Loadable';
+import StorePage from 'containers/StorePage/Loadable';
 
-import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import Aside from 'components/Aside';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -37,9 +37,11 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={WorkPage} />
+        <Route path="/store" component={StorePage} />
         <Route path="/info" component={InfoPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
+      <Aside />
       <Footer />
     </AppWrapper>
   );
